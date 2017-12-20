@@ -32,6 +32,7 @@ pipeline {
         sh 'cp /app/build-dotnet/RedRoomAPI-${BUILD_NUMBER}.tar.gz /app/build-dotnet/RedRoomAPI2-${BUILD_NUMBER}.tar.gz'
         echo 'ssh to web server and tell it to pull new image'
         sh '#ssh deploy@xxxxx.xxxxx.com running/xxxxxxx/dockerRun.sh'
+      }
     }
     stage('email-sucess') {
       steps {
