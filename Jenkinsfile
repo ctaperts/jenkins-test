@@ -5,8 +5,10 @@ Test pipeline RedRoomApi
 currentBuild.result = "SUCCESS"
 pipeline {
   agent {
-    docker { image 'colbyt/dotnet-ubuntu' }
-    args '-v $HOME/jenkins/build-dotnet:/app/build-dotnet -v $HOME/.ssh:/root/.ssh'
+    docker {
+      image 'colbyt/dotnet-ubuntu'
+      args '-v $HOME/jenkins/build-dotnet:/app/build-dotnet -v $HOME/.ssh:/root/.ssh'
+    }
   }
   stages {
     stage('Test') {
