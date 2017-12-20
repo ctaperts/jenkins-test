@@ -12,8 +12,6 @@ pipeline {
     stages {
       stage('Test') {
         echo 'Test'
-        /*git url: git@github.com:secondcircle/RedRoomAPI.git*/
-        git url: git@github.com:ctaperts/jenkins-test
         sh 'ls -R'
         sh 'echo hello world'
       }
