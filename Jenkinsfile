@@ -10,21 +10,9 @@ pipeline {
   }
   stages {
     stage('Test') {
-      try {
         echo 'Test'
         sh 'ls -R'
         sh 'echo hello world'
-      } catch (err) {
-
-        echo 'Failed'
-          currentBuild.result = "FAILURE"
-          mail body: "project build error is here: ${env.BUILD_URL}" ,
-                      from: 'admin@redroomnola.com',
-                      replyTo: 'admin@redroomnola.com',
-                      subject: 'project build successful',
-                      to: 'colby.taperts@gmail.com'
-          throw err
-      }
     }
     stage('Build') {
         echo 'Build'
