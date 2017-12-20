@@ -6,7 +6,7 @@ currentBuild.result = "SUCCESS"
 pipeline {
   agent {
     docker {
-      image 'colbyt/dotnet-ubuntu'
+      image 'jenkinsci/docker-workflow-demo'
       args '-v $HOME/jenkins/build-dotnet:/app/build-dotnet -v $HOME/.ssh:/root/.ssh -u root:root'
     }
   }
