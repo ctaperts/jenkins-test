@@ -16,6 +16,7 @@ pipeline {
         echo 'Test'
         sh 'ls -R'
         sh 'echo hello world'
+        sh 'pwd'
       }
     }
     stage('Build') {
