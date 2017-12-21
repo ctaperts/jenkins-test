@@ -53,7 +53,7 @@ pipeline {
                       from: 'admin@redroomnola.com',
                       replyTo: 'admin@redroomnola.com',
                       subject: 'project build ${BUILD_NUMBER} failure',
-                      to: 'colby.taperts@gmail.com;colby.taperts@codewilling.com'
+                      to: 'colby.taperts@gmail.com,colby.taperts@codewilling.com'
         }
       }
     }
