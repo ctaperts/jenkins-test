@@ -7,7 +7,7 @@ pipeline {
   agent {
     docker {
       image 'colbyt/dotnet-ubuntu'
-      args '-v $HOME/jenkins/build-dotnet:/app/build-dotnet -v $HOME/.ssh:/root/.ssh -u root:root'
+      args '-v /root/jenkins/build-dotnet:/app/build-dotnet -v $HOME/.ssh:/root/.ssh -u root:root'
     }
   }
   stages {
