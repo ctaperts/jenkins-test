@@ -7,7 +7,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls /tmp'
-                sh 'ls /root'
+                sh 'ls ~'
             }
         }
     }
