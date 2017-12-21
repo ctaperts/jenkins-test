@@ -20,7 +20,7 @@ pipeline {
       steps {
         echo 'Build'
         sh 'touch /app/build-dotnet/build-${BUILD_NUMBER}'
-        // sh 'cd RedRoomAPI'
+        sh 'cd RedRoomAPI'
         // sh 'dotnet restore'
         // sh 'dotnet publish -c Release -o RedRoomAPI'
         // sh 'tar czf /app/build-dotnet/RedRoomApi-${BUILD_NUMBER}.tar.gz RedRoomAPI'
@@ -41,6 +41,20 @@ pipeline {
                     replyTo: 'admin@redroomnola.com',
                     subject: 'project build successful',
                     to: 'colby.taperts@gmail.com'
+      }
+    }
+  }
+  post {
+    changed {
+      script {
+        if (currentBuild.currentResult == 'FAILURE') { // Other values: SUCCESS, UNSTABLE
+          // Send an email only if the build status has changed from green/unstable to red
+          mail body: 'project build ${BUILD_NUMBER} failure',
+                      from: 'admin@redroomnola.com',
+                      replyTo: 'admin@redroomnola.com',
+                      subject: 'project build ${BUILD_NUMBER} failure',
+                      to: 'colby.taperts@gmail.com;colby.taperts@codewilling.com'
+        }
       }
     }
   }
