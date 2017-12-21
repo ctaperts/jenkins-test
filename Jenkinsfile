@@ -40,7 +40,7 @@ pipeline {
                     from: 'admin@redroomnola.com',
                     replyTo: 'admin@redroomnola.com',
                     subject: 'project build successful',
-                    to: 'colby.taperts@gmail.com'
+                    to: 'colby.taperts@gmail.com' // comma delimited email addresses
       }
     }
   }
@@ -49,11 +49,11 @@ pipeline {
       script {
         if (currentBuild.currentResult == 'FAILURE') { // Other values: SUCCESS, UNSTABLE
           // Send an email only if the build status has changed from green/unstable to red
-          mail body: 'project build ${BUILD_NUMBER} failure',
+          mail body: "project build ${BUILD_NUMBER} failure",
                       from: 'admin@redroomnola.com',
                       replyTo: 'admin@redroomnola.com',
                       subject: 'project build ${BUILD_NUMBER} failure',
-                      to: 'colby.taperts@gmail.com,colby.taperts@codewilling.com'
+                      to: 'colby.taperts@gmail.com' // comma delimited email addresses
         }
       }
     }
