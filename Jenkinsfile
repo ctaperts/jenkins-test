@@ -6,8 +6,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'pwd'
-                ls '/tmp'
-                ls '/root'
+                sh 'ls /tmp'
+                sh 'ls /root'
             }
         }
     }
